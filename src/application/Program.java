@@ -1,10 +1,14 @@
 package application;
 
+import jogotabuleiro.Posicao;
+
 public class Program {
 
 	public static void main(String[] args) {
 
-		System.out.println("Program principal");
+		Posicao posicao = new Posicao(3, 5);
+		
+		System.err.println(posicao);
 	}
 
 }
