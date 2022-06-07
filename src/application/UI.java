@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import xadrez.Cor;
+import xadrez.PartidaXadrez;
 import xadrez.PecaXadrez;
 import xadrez.PosicaoXadrez;
 
@@ -46,6 +47,14 @@ public class UI {
 		} catch (RuntimeException e) {
 			throw new InputMismatchException("Erro instanciando posição do xadrez. Valores valodos são de a1 até h8.");
 		}
+	}
+
+	public static void mostrarPartida(PartidaXadrez partidaXadrez) {
+		mostrarTabuleiro(partidaXadrez.getPecas());
+
+		System.out.println();
+		System.out.println("Turno: " + partidaXadrez.getTurno());
+		System.out.println("Aguardando Jogador: " + partidaXadrez.getJogadorAtual());
 	}
 
 	public static void mostrarTabuleiro(PecaXadrez[][] pecas) {
