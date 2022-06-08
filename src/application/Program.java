@@ -42,11 +42,16 @@ public class Program {
 				if (pecaCapturada != null) {
 					capturadas.add(pecaCapturada);
 				}
-				
-				if(partidaXadrez.getPromovido() != null) {
+
+				if (partidaXadrez.getPromovido() != null) {
 					System.out.print("Informe peça para promoção (B/C/T/D): ");
-					String tipo = sc.nextLine();
-					
+					String tipo = sc.nextLine().toUpperCase();
+
+					while (!tipo.equals("B") && !tipo.equals("C") && !tipo.equals("T") && !tipo.equals("D")) {
+						System.out.print("Valor inválido! Informe peça para promoção (B/C/T/D): ");
+						tipo = sc.nextLine().toUpperCase();
+					}
+
 					partidaXadrez.substituirPecaPromovida(tipo);
 				}
 			} catch (XadrezException e) {
@@ -57,7 +62,7 @@ public class Program {
 				sc.nextLine();
 			}
 		}
-		
+
 		UI.limparTela();
 		UI.mostrarPartida(partidaXadrez, capturadas);
 	}
